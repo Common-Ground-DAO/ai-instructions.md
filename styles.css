@@ -803,13 +803,35 @@ nav {
 
 /* Add styles for the shortcut hint */
 .shortcut-hint {
-    margin-left: 8px;
-    padding: 2px 6px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 4px;
-    font-size: 0.8rem;
+    display: inline-flex;
+    gap: 2px;
+    padding: 2px 4px;
+    font-size: 0.75rem;
     font-family: 'JetBrains Mono', monospace;
-    opacity: 0.7;
+    color: var(--text-dim);
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    vertical-align: middle;
+    margin-left: 8px;
+}
+
+/* Add these new styles for individual keys */
+.shortcut-hint::before {
+    content: "⌘";
+    padding: 1px 3px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    margin-right: 2px;
+}
+
+.shortcut-hint::after {
+    content: "↵";
+    padding: 1px 3px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 3px;
 }
 
 @media (max-width: 768px) {
