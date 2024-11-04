@@ -1,0 +1,258 @@
+/* Base styles */
+:root {
+    --bg: #0a0a0a;
+    --text: #e0e0e0;
+    --text-dim: #888;
+    --primary: #3b82f6;
+    --primary-hover: #2563eb;
+    --accent: #22c55e;
+    --border: #222;
+    --card-bg: #111;
+    --code-bg: #161616;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    line-height: 1.5;
+}
+
+.mono, pre, code {
+    font-family: 'JetBrains Mono', monospace;
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 1rem;
+    background: rgba(10, 10, 10, 0.8);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+    z-index: 100;
+}
+
+.nav-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ascii-logo {
+    font-size: 0.7rem;
+    line-height: 1.2;
+    color: var(--primary);
+    margin: 0;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.nav-links a {
+    color: var(--text);
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.github-link {
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    transition: all 0.2s;
+}
+
+.github-link:hover {
+    border-color: var(--text);
+}
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 6rem 1rem;
+}
+
+.hero-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+h1 {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.tagline {
+    font-size: 1.5rem;
+    color: var(--text-dim);
+}
+
+.hero-desc {
+    font-size: 1.25rem;
+    color: var(--text-dim);
+    margin-bottom: 2rem;
+}
+
+.cta-group {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 4rem;
+}
+
+.cta-primary {
+    background: var(--primary);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.2s;
+}
+
+.cta-primary:hover {
+    background: var(--primary-hover);
+}
+
+.cta-secondary {
+    color: var(--text);
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    text-decoration: none;
+    border: 1px solid var(--border);
+    font-weight: 600;
+    transition: all 0.2s;
+}
+
+.cta-secondary:hover {
+    border-color: var(--text);
+}
+
+.ascii-demo {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    text-align: left;
+    color: var(--text-dim);
+    background: var(--code-bg);
+    padding: 2rem;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    display: inline-block;
+}
+
+section {
+    padding: 6rem 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.feature {
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+}
+
+.feature h3 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+}
+
+.testimonials {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+blockquote {
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+}
+
+blockquote p {
+    margin-bottom: 1rem;
+    font-style: italic;
+}
+
+cite {
+    color: var(--text-dim);
+    font-style: normal;
+}
+
+.installation-steps {
+    background: var(--code-bg);
+    padding: 2rem;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    margin-bottom: 2rem;
+    font-size: 0.9rem;
+    color: var(--text-dim);
+}
+
+footer {
+    border-top: 1px solid var(--border);
+    padding: 4rem 1rem;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-left {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.ascii-mini {
+    font-size: 0.6rem;
+    line-height: 1.2;
+    color: var(--text-dim);
+    margin: 0;
+}
+
+.footer-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.footer-links a {
+    color: var(--text-dim);
+    text-decoration: none;
+    transition: color 0.2s;
+}
