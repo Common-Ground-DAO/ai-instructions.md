@@ -264,6 +264,20 @@ document.addEventListener('DOMContentLoaded', () => {
             200
         ) + 'px';
     });
+
+    const focusGeneratorBtn = document.getElementById('focusGeneratorBtn');
+    const projectInput = document.getElementById('projectDescription');
+
+    focusGeneratorBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        projectInput.focus();
+        projectInput.classList.add('focus-attention');
+        
+        // Remove the animation class after it completes
+        setTimeout(() => {
+            projectInput.classList.remove('focus-attention');
+        }, 1000);
+    });
 });
 
 // Listen for system theme changes

@@ -378,11 +378,10 @@ nav {
 }
 
 .generator-container {
-    position: relative;
     width: 100%;
     max-width: 800px;
-    margin: 0 auto;
-    background: var(--bg-secondary);
+    margin: 2rem auto 0;
+    background: var(--bg);
     border: 1px solid var(--border);
     border-radius: 12px;
     overflow: hidden;
@@ -395,17 +394,14 @@ nav {
 
 .project-input {
     width: 100%;
-    min-height: 80px;
-    padding: 1rem;
-    background: var(--bg);
+    min-height: 140px;
+    padding: 1.2rem;
+    background: transparent;
     border: none;
-    border-radius: 12px;
     color: var(--text);
-    font-family: var(--font-mono);
-    font-size: 0.9rem;
+    font-size: 1rem;
     line-height: 1.5;
     resize: vertical;
-    transition: all 0.2s ease;
 }
 
 .project-input:focus {
@@ -416,13 +412,13 @@ nav {
 
 .generate-btn {
     width: 100%;
-    padding: 1rem;
-    background: var(--bg-secondary);
+    padding: 1.2rem;
+    background: var(--primary);
     border: none;
     border-top: 1px solid var(--border);
-    border-radius: 0 0 12px 12px;
-    color: var(--text);
-    font-size: 0.9rem;
+    color: white;
+    font-size: 0.95rem;
+    font-weight: 500;
     cursor: pointer;
     transition: all 0.2s ease;
     display: flex;
@@ -434,6 +430,15 @@ nav {
 .generate-btn:hover {
     background: var(--primary-hover);
     transform: translateY(-1px);
+}
+
+.generate-btn::before {
+    content: "✨";
+    font-size: 1.1em;
+}
+
+.wand-icon {
+    display: none;
 }
 
 .generate-btn:active {
@@ -1128,5 +1133,58 @@ nav {
 }
 
 [data-theme="light"] .status-secondary {
+    color: var(--text-dim);
+}
+
+/* Add focus animation for the input (after the .project-input styles) */
+@keyframes focusPulse {
+    0% { box-shadow: 0 0 0 0 rgba(var(--primary-rgb), 0.2); }
+    70% { box-shadow: 0 0 0 10px rgba(var(--primary-rgb), 0); }
+    100% { box-shadow: 0 0 0 0 rgba(var(--primary-rgb), 0); }
+}
+
+.project-input.focus-attention {
+    animation: focusPulse 1s cubic-bezier(0.4, 0, 0.6, 1);
+}
+
+/* Ensure input container matches new size */
+.input-wrapper {
+    width: 100%;
+    max-width: 800px;
+    margin: 2rem auto 0;
+}
+
+/* Container styling - remove any default padding */
+.generator-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 2rem auto 0;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+/* Input styling - ensure placeholder text is visible in both themes */
+.project-input {
+    width: 100%;
+    min-height: 140px;
+    padding: 1.2rem;
+    background: transparent;
+    border: none;
+    color: var(--text);
+    font-size: 1rem;
+    line-height: 1.5;
+    resize: vertical;
+}
+
+/* Fix placeholder text color for both themes */
+.project-input::placeholder {
+    color: var(--text-dim);
+    opacity: 1; /* Ensure opacity is set to make it visible */
+}
+
+/* Specific light mode placeholder color */
+[data-theme="light"] .project-input::placeholder {
     color: var(--text-dim);
 }
