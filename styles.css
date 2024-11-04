@@ -1151,7 +1151,7 @@ nav {
 .input-wrapper {
     width: 100%;
     max-width: 800px;
-    margin: 2rem auto 0;
+    margin: 0 auto;
 }
 
 /* Container styling - remove any default padding */

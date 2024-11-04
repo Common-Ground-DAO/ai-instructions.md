@@ -9,7 +9,7 @@ app.use(express.json());
 
 const openai = new OpenAI({
     apiKey: process.env.OPENAI_API_KEY,
-    timeout: 60000, // 60 second timeout
+    maxRetries: 3,
 });
 
 app.post('/generate', async (req, res) => {
@@ -17,7 +17,7 @@ app.post('/generate', async (req, res) => {
         const { projectDescription } = req.body;
         
         const completion = await openai.chat.completions.create({
-            model: "gpt-3.5-turbo",  // Using 3.5 for faster response
+            model: "gpt-3.5-turbo",
             messages: [
                 {
                     role: "system",
@@ -30,7 +30,6 @@ app.post('/generate', async (req, res) => {
             ],
             temperature: 0.7,
             max_tokens: 2000,
-            timeout: 30000 // 30 second timeout
         });
 
         if (!completion.choices || !completion.choices[0]) {
