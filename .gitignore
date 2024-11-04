@@ -1,0 +1,10 @@
+# API Keys and Environment
+.env
+api/config.js
+
+# Service directory
+api/node_modules/
+api/dist/
+
+# OS files
+.DS_Store

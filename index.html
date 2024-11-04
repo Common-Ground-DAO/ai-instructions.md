@@ -11,19 +11,37 @@
     <nav>
         <div class="nav-content">
             <div class="logo">
-                <pre class="ascii-logo">
- _____    ______          
-/  _  \   |    |          
-|  |_| |  |    |          
-|   _  |  |    |   v0.1.0
-|__| |_|  |____|          
-                </pre>
+                <a href="/" class="logo-link">
+                    <pre class="ascii-logo">
+ _____    ______   
+/  _  \   |    |   
+|__| |_|  |____|   </pre>
+                    <span class="logo-text">instructions.md</span>
+                </a>
             </div>
             <div class="nav-links">
                 <a href="#why">Why?</a>
-                <a href="#how">How</a>
-                <a href="#proof">Proof</a>
-                <a href="https://github.com/Common-Ground-DAO/ai-instructions.md" class="github-link">GitHub →</a>
+                <a href="#features">Features</a>
+                <a href="#testimonials">Success Stories</a>
+                <div class="nav-right">
+                    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+                        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="5"/>
+                            <line x1="12" y1="1" x2="12" y2="3"/>
+                            <line x1="12" y1="21" x2="12" y2="23"/>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                            <line x1="1" y1="12" x2="3" y2="12"/>
+                            <line x1="21" y1="12" x2="23" y2="12"/>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                        </svg>
+                        <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                        </svg>
+                    </button>
+                    <a href="https://github.com/Common-Ground-DAO/ai-instructions.md/blob/main/template.md" class="github-link">GitHub →</a>
+                </div>
             </div>
         </div>
     </nav>
@@ -39,21 +57,70 @@
                 <a href="#get-started" class="cta-primary">Get Started →</a>
                 <a href="#learn-more" class="cta-secondary">Learn More ↓</a>
             </div>
-            <pre class="ascii-demo">
-┌─ ai-instructions.md ─────────────────┐
-│                                      │
-│ # Project Name                       │
-│                                      │
-│ ## Overview                          │
-│ Your project's DNA, encoded for AI   │
-│                                      │
-│ ## Conventions                       │
-│ - Coding style                       │
-│ - File structure                     │
-│ - Best practices                     │
-│                                      │
-└──────────────────────────────────────┘
-            </pre>
+            
+            <div class="generator-container">
+                <div class="input-wrapper">
+                    <textarea 
+                        id="projectDescription" 
+                        class="project-input"
+                        placeholder="Describe your project... (e.g., 'A Next.js app with TypeScript and Tailwind, focusing on performance and DX.')"
+                        rows="3"
+                    ></textarea>
+                    
+                    <!-- Loading overlay -->
+                    <div class="generation-overlay">
+                        <div class="generation-content">
+                            <div class="progress-bar">
+                                <div class="progress-fill"></div>
+                            </div>
+                            <div class="generation-status">
+                                <div class="status-primary">
+                                    <div class="pulse-container">
+                                        <div class="pulse-bubble"></div>
+                                        <div class="pulse-bubble"></div>
+                                        <div class="pulse-bubble"></div>
+                                    </div>
+                                    <span class="status-text">Generating template...</span>
+                                </div>
+                                <div class="status-secondary"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button id="generateBtn" class="generate-btn">
+                        <span class="button-content">
+                            <svg class="wand-icon" viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none">
+                                <path d="M15 4V2m0 12V8m0 8v-2M9 20h12M7 16l-4 4M7 16l4-4M7 16l-4-4M7 16l4 4M19 12h2M3 12h12"/>
+                            </svg>
+                            Generate Template
+                            <span class="shortcut-hint">⌘↵</span>
+                        </span>
+                    </button>
+                </div>
+                
+                <!-- Preview container -->
+                <div id="previewContainer" class="preview-container" style="display: none;">
+                    <div class="preview-card" tabindex="0">
+                        <div class="preview-header">
+                            <svg class="file-icon" viewBox="0 0 24 24" width="24" height="24">
+                                <path d="M3 3h18v18H3V3zm1 1v16h16V4H4zm3 3h10v1H7V7zm0 3h10v1H7v-1zm0 3h10v1H7v-1z" fill="currentColor"/>
+                            </svg>
+                            <span class="filename">ai-instructions.md</span>
+                        </div>
+                        <div class="preview-content"></div>
+                        <div class="preview-footer">
+                            <span class="preview-hint">Click to view full template →</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="errorToast" class="error-toast" role="alert">
+                <svg class="error-icon" viewBox="0 0 24 24" width="16" height="16">
+                    <path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm-1-7v2h2v-2h-2zm0-8v6h2V7h-2z" fill="currentColor"/>
+                </svg>
+                <span class="error-message"></span>
+                <button class="close-toast" aria-label="Dismiss">×</button>
+            </div>
         </div>
     </header>
 
@@ -112,9 +179,9 @@ echo "# Project Name\n\n## Overview..." > ai-instructions.md
         <div class="footer-content">
             <div class="footer-left">
                 <pre class="ascii-mini">
- _____    ______   
-/  _  \   |    |   
-|__| |_|  |____|   </pre>
+ _____    ______
+/  _  \   |    |
+|__| |_|  |____|</pre>
                 <p>The Open Standard for AI-Human Collaboration</p>
             </div>
             <div class="footer-links">
@@ -124,5 +191,33 @@ echo "# Project Name\n\n## Overview..." > ai-instructions.md
             </div>
         </div>
     </footer>
+    <script src="script.js"></script>
+
+    <!-- Modal (outside generator-container) -->
+    <div id="templateModal" class="modal" style="display: none;">
+        <div class="modal-overlay"></div>
+        <div class="modal-container">
+            <div class="modal-header">
+                <div class="modal-title">
+                    <svg class="file-icon" viewBox="0 0 24 24" width="20" height="20">
+                        <path d="M3 3h18v18H3V3zm1 1v16h16V4H4zm3 3h10v1H7V7zm0 3h10v1H7v-1zm0 3h10v1H7v-1z" fill="currentColor"/>
+                    </svg>
+                    ai-instructions.md
+                </div>
+                <div class="modal-actions">
+                    <button id="copyBtn" class="copy-btn">
+                        <svg class="copy-icon" viewBox="0 0 24 24" width="16" height="16">
+                            <path d="M8 4v12h12V4H8zm1 1h10v10H9V5z" fill="currentColor"/>
+                            <path d="M4 8H3v12h12v-1H4V8z" fill="currentColor"/>
+                        </svg>
+                        Copy to clipboard
+                    </button>
+                </div>
+            </div>
+            <div class="modal-content">
+                <pre><code class="template-code"></code></pre>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
