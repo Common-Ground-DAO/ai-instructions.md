@@ -446,7 +446,7 @@ nav {
     display: none;
     align-items: center;
     justify-content: center;
-    background: var(--bg-secondary);
+    background: var(--bg);
     border-radius: 12px;
     z-index: 50;
 }
@@ -479,12 +479,14 @@ nav {
     gap: 0.75rem;
     font-size: 1.1rem;
     font-weight: 500;
+    color: var(--text);
 }
 
 .status-secondary {
     font-size: 0.9rem;
-    opacity: 0.7;
+    color: var(--text-dim);
     font-style: italic;
+    transition: opacity 0.3s ease;
 }
 
 .progress-bar {
@@ -1114,4 +1116,17 @@ nav {
     display: flex;
     align-items: center;
     gap: 0.5rem;
+}
+
+/* Light mode specific adjustments */
+[data-theme="light"] .generation-overlay {
+    background: var(--bg);
+}
+
+[data-theme="light"] .status-primary {
+    color: var(--text);
+}
+
+[data-theme="light"] .status-secondary {
+    color: var(--text-dim);
 }

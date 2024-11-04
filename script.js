@@ -221,19 +221,38 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Add copy to clipboard functionality
+    // Fix the copy to clipboard functionality
     const copyBtn = document.getElementById('copyBtn');
     copyBtn.addEventListener('click', async () => {
         try {
-            await navigator.clipboard.writeText(templateOutput.textContent);
-            const originalText = copyBtn.textContent;
-            copyBtn.textContent = 'Copied!';
+            const codeElement = document.querySelector('.template-code');
+            // Get the actual text content, stripping any HTML tags
+            const textToCopy = codeElement.textContent || codeElement.innerText;
+            
+            await navigator.clipboard.writeText(textToCopy);
+            
+            // Update button state
+            copyBtn.classList.add('copied');
+            const originalText = copyBtn.innerHTML;
+            copyBtn.innerHTML = `
+                <svg class="copy-icon" viewBox="0 0 24 24" width="16" height="16">
+                    <path d="M20 6L9 17l-5-5" fill="none" stroke="currentColor" stroke-width="2"/>
+                </svg>
+                Copied!
+            `;
+            
+            // Reset button after 2 seconds
             setTimeout(() => {
-                copyBtn.textContent = originalText;
+                copyBtn.classList.remove('copied');
+                copyBtn.innerHTML = originalText;
             }, 2000);
         } catch (err) {
             console.error('Failed to copy:', err);
-            alert('Failed to copy to clipboard');
+            // Use a more subtle error indication
+            copyBtn.style.color = 'var(--text-error, #ef4444)';
+            setTimeout(() => {
+                copyBtn.style.color = '';
+            }, 2000);
         }
     });
 
