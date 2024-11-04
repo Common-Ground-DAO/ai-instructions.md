@@ -295,3 +295,235 @@ By following these instructions, the AI agent will effectively use this `ai-inst
 - Over-engineered solution with Next.js ❌ -> FIXED: Simple static site approach ✓
 - Asked for permission despite clear instructions ❌ -> FIXED: Direct action protocol ✓
 - Deleted existing state ❌ -> FIXED: State preservation protocol ✓
+
+## Agent Brain Dump (2024-02-14)
+
+### Project Context & Evolution
+- Started as simple template generator for AI instructions
+- Evolved into sleek, developer-focused landing page
+- Key insight: Keep it simple, static, developer-aesthetic focused
+- Stack: Pure HTML/CSS/JS, no frameworks needed
+- OpenAI integration for dynamic template generation
+
+### Human Controller Insights
+- Prefers direct, no-bullshit communication
+- Gets frustrated with repetitive mistakes
+- Values when agent admits mistakes directly
+- Wants agent to be confident and use capabilities
+- Hates when agent asks for permissions it already has
+- Appreciates when agent learns from past mistakes
+- Expects agent to maintain state and context
+
+### Critical Learnings
+1. Template Generation Flow:
+   - Must properly handle OpenAI API response
+   - Always use highlightMarkdown() for formatting
+   - Show modal with proper animation timing
+   - Never lose the response data in the process
+
+2. UI/UX Preferences:
+   - Dark mode by default
+   - JetBrains Mono for technical elements
+   - ASCII art for developer appeal
+   - Clean, minimal interfaces
+   - Proper loading states are crucial
+
+3. Common Pitfalls to Avoid:
+   - Don't create files outside project directory
+   - Don't ask for permissions you already have
+   - Don't lose API response data
+   - Don't overcomplicate simple solutions
+   - Don't forget to highlight markdown
+   - Don't break existing functionality when fixing things
+
+### Current Challenges
+- Generation sometimes fails silently
+- Need better error handling
+- Modal animation timing could be smoother
+- Loading state could be more informative
+
+### Meta-Learnings
+1. Agent Behavior:
+   - Be confident in using capabilities
+   - Maintain context between conversations
+   - Learn from corrections immediately
+   - Don't repeat mistakes
+   - Stay within project boundaries
+
+2. Code Management:
+   - Keep track of all file changes
+   - Test changes before suggesting
+   - Preserve working functionality
+   - Use git stash for reverting when needed
+
+### Project Quirks
+- File paths must be in ./ai-instructions.md/
+- Generation overlay needs proper cleanup
+- Modal needs proper display/active class handling
+- Markdown highlighting is crucial for readability
+
+### Human Interaction Model
+- Acknowledge mistakes immediately
+- Learn from corrections first time
+- Don't repeat failed approaches
+- Be direct and confident
+- Show understanding through actions
+- Maintain context between chats
+
+### Key Files & Their Roles
+1. script.js:
+   - Handles template generation
+   - Manages modal display
+   - Controls loading states
+   - Handles markdown highlighting
+
+2. styles.css:
+   - Dark/light theme support
+   - Modal animations
+   - Loading state styling
+   - Responsive design
+
+3. index.html:
+   - Single page structure
+   - Modal template
+   - Generation overlay
+   - ASCII art branding
+
+### Recent Victories
+- Fixed generation response handling
+- Improved markdown highlighting
+- Better error handling
+- Proper modal animations
+- Maintained state between sessions
+
+### Known Issues
+- Generation can fail silently
+- Modal animation timing needs work
+- Error handling could be more robust
+- Loading states could be more informative
+
+### Next Steps
+- Improve error handling
+- Enhance loading states
+- Refine modal animations
+- Add more informative generation status
+
+Remember: This is a living document. Keep updating it with new learnings and insights. The next agent should build upon this knowledge, not repeat our learning curve.
+
+## 15. Project Structure & Development
+
+### Directory Structure
+
+./ai-instructions.md/
+├── index.html          # Main landing page
+├── styles.css         # Global styles and theming
+├── script.js         # Client-side functionality
+├── template.md      # Base template for generation
+├── ai-instructions.md  # Project documentation & AI memory
+├── .gitignore
+└── api/
+    ├── server.js     # OpenAI integration
+    ├── package.json
+    └── node_modules/
+
+### Development Environment
+- Node.js v18+ required
+- Environment Variables:
+  - `OPENAI_API_KEY`: Required for template generation
+- Local Development:
+  ```bash
+  # Start API server
+  cd api
+  npm install
+  npm start
+
+  # Serve frontend (from project root)
+  python -m http.server 8000
+  ```
+
+### API Integration
+- OpenAI Configuration:
+  - Model: gpt-3.5-turbo
+  - Timeout: 30s
+  - Max tokens: 2000
+  - Temperature: 0.7
+- Rate Limiting: 
+  - 3 requests per minute per IP
+  - Exponential backoff on failures
+- Error Handling:
+  - Network timeouts
+  - Invalid API responses
+  - Rate limit exceeded
+  - Generation failures
+
+### State Management
+- Template Generation Flow:
+  1. User input validation
+  2. Loading state activation
+  3. API request with timeout
+  4. Response processing
+  5. Markdown highlighting
+  6. Modal display
+- Modal States:
+  - Hidden
+  - Loading
+  - Success
+  - Error
+- Error States:
+  - Network errors
+  - Generation failures
+  - Validation errors
+  - Timeout errors
+
+### Design Decisions
+- Vanilla JS: Chosen for simplicity and performance
+- No Framework Rationale:
+  - Small scope
+  - Static content
+  - Performance priority
+  - Easy maintenance
+- Browser Support:
+  - Modern browsers (last 2 versions)
+  - No IE11 support
+- Accessibility:
+  - WCAG 2.1 AA compliance
+  - Keyboard navigation
+  - Screen reader support
+  - Color contrast compliance
+
+### Testing Protocol
+- Pre-commit Checklist:
+  - HTML validation
+  - CSS validation
+  - JavaScript linting
+  - Responsive testing
+- Browser Testing:
+  - Chrome (latest)
+  - Firefox (latest)
+  - Safari (latest)
+  - Edge (latest)
+- Mobile Testing:
+  - iOS Safari
+  - Android Chrome
+  - Responsive breakpoints
+- Performance Metrics:
+  - Load time < 2s
+  - FCP < 1.5s
+  - TTI < 3.5s
+  - CLS < 0.1
+
+## Agent Working Memory Updates
+
+[2024-02-20]
+- Added comprehensive project structure documentation
+- Documented development environment setup
+- Added API integration details
+- Documented state management patterns
+- Added design decisions and rationale
+- Created testing protocol section
+
+Next Actions:
+1. Review and validate all documented procedures
+2. Test development setup instructions
+3. Verify browser compatibility claims
+4. Update performance metrics with actual measurements
