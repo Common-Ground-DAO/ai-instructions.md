@@ -307,10 +307,13 @@ footer {
 }
 
 .ascii-mini {
-    font-size: 0.6rem;
+    font-size: 0.75rem;
     line-height: 1.2;
     color: var(--text-dim);
     margin: 0;
+    display: flex;
+    align-items: center;
+    height: 100%;
 }
 
 .footer-links {
@@ -1419,5 +1422,33 @@ blockquote p {
 [data-theme="dark"] .generator-container,
 [data-theme="dark"] .input-wrapper {
     background: #0a0a0a;  /* Matching our darkest shade */
+}
+
+/* Footer text styling */
+.footer-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.footer-tagline {
+    color: var(--text);
+    margin: 0;
+}
+
+.footer-attribution {
+    color: var(--text-dim);
+    font-size: 0.8rem;
+    margin: 0;
+}
+
+.footer-attribution a {
+    color: var(--text-dim);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.footer-attribution a:hover {
+    color: var(--primary);
 }
 
