@@ -1541,6 +1541,27 @@ blockquote p {
         padding: 0.5rem 0.75rem;
         min-height: 36px;
     }
+
+    /* Add these mobile-specific footer adjustments */
+    .footer-content {
+        flex-direction: column;
+        gap: 1.5rem;
+        text-align: center;
+        padding: 1.5rem 1rem;
+    }
+
+    .footer-links {
+        justify-content: center;
+        gap: 1.5rem;
+    }
+
+    .footer-left {
+        align-items: center;
+    }
+
+    .footer-text {
+        align-items: center;
+    }
 }
 
 /* Ensure proper touch targets for all interactive elements */
