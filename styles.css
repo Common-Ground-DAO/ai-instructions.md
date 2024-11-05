@@ -13,14 +13,14 @@
 }
 
 [data-theme="light"] {
-    --bg: #ffffff;
+    --bg: #f8f9fc;
     --text: #1a1a1a;
     --text-dim: #666;
     --primary: #2563eb;
     --primary-hover: #1d4ed8;
     --accent: #16a34a;
     --border: #e5e5e5;
-    --card-bg: #f9fafb;
+    --card-bg: #ffffff;
     --code-bg: #f3f4f6;
 }
 
@@ -56,7 +56,7 @@ nav {
 }
 
 [data-theme="light"] nav {
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(248, 249, 252, 0.8);
 }
 
 .nav-content {
@@ -332,20 +332,21 @@ footer {
 }
 
 .theme-toggle {
-    padding: 0.5rem;
+    background: var(--bg);
     border: 1px solid var(--border);
+    padding: 0.5rem;
     border-radius: 6px;
-    background: var(--card-bg);
-    color: var(--text);
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
+    color: var(--text);
     transition: all 0.2s ease;
 }
 
 .theme-toggle:hover {
-    border-color: var(--text);
+    background: var(--card-bg);
+    border-color: var(--text-dim);
 }
 
 .theme-toggle svg {
@@ -380,7 +381,7 @@ nav {
 
 /* Update nav background for light theme */
 [data-theme="light"] nav {
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(248, 249, 252, 0.8);
 }
 
 .logo-link {
@@ -1385,4 +1386,32 @@ blockquote p {
     .proof-section {
         padding: 3rem 1rem;
     }
+}
+
+/* Light mode refinements */
+[data-theme="light"] {
+    --bg: #f8f9fc;
+    --text: #1a1a1a;
+    --text-dim: #666;
+    --primary: #2563eb;
+    --primary-hover: #1d4ed8;
+    --accent: #16a34a;
+    --border: #e5e5e5;
+    --card-bg: #ffffff;
+    --code-bg: #f3f4f6;
+}
+
+/* Navbar background in light mode */
+[data-theme="light"] nav {
+    background: rgba(248, 249, 252, 0.8);
+}
+
+/* Keep generator container white */
+[data-theme="light"] .generator-container {
+    background: #ffffff;
+}
+
+/* Keep input area white */
+[data-theme="light"] .input-wrapper {
+    background: #ffffff;
 }
