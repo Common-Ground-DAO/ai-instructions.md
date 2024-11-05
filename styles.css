@@ -1,13 +1,13 @@
 /* Base styles */
 :root {
-    --bg: #0a0a0a;
+    --bg: #111111;
     --text: #e0e0e0;
     --text-dim: #888;
     --primary: #3b82f6;
     --primary-hover: #2563eb;
     --accent: #22c55e;
     --border: #222;
-    --card-bg: #111;
+    --card-bg: #0a0a0a;
     --code-bg: #161616;
     --primary-rgb: 59, 130, 246; /* RGB values for #3b82f6 */
 }
@@ -48,7 +48,7 @@ nav {
     left: 0;
     right: 0;
     padding: 1rem;
-    background: rgba(10, 10, 10, 0.8);
+    background: rgba(17, 17, 17, 0.8);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--border);
     z-index: 100;
@@ -1405,7 +1405,6 @@ blockquote p {
 [data-theme="light"] nav {
     background: rgba(248, 249, 252, 0.8);
 }
-
 /* Keep generator container white */
 [data-theme="light"] .generator-container {
     background: #ffffff;
@@ -1415,3 +1414,10 @@ blockquote p {
 [data-theme="light"] .input-wrapper {
     background: #ffffff;
 }
+
+/* Generator container dark mode refinement - single surgical change */
+[data-theme="dark"] .generator-container,
+[data-theme="dark"] .input-wrapper {
+    background: #0a0a0a;  /* Matching our darkest shade */
+}
+
